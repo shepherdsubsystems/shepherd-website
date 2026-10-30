@@ -1,0 +1,476 @@
+/* ================================================================
+   SHEPHERD SUB SYSTEMS — CONSOLIDATED STYLESHEET
+   Replace the existing stylesheet; do not append it to older rules.
+   Fonts are loaded directly from assets/ beside the logo.
+   ================================================================ */
+
+/* 01 / LOCAL FONTS */
+@font-face {
+  font-family: "Anton";
+  src: url("assets/Anton-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/IBMPlexSans-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/IBMPlexSans-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/IBMPlexSans-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+/* 02 / SITE SETTINGS */
+:root {
+  color-scheme: dark;
+  --background: #12212b;
+  --surface: #192d38;
+  --text: #e7f1f2;
+  --muted: #b9cbd1;
+  --cyan: #85d4dc;
+  --orange: #f28a4e;
+  --rule: #85d4dc35;
+  --composition-width: 1120px;
+  --page-gutter: clamp(20px, 3.3vw, 40px);
+  --font-reading: "IBM Plex Sans", Arial, sans-serif;
+  --font-display: "Anton", Impact, sans-serif;
+}
+
+/* 03 / BASE AND KEYBOARD ACCESS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-reading);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 5px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  margin: 0 0 22px;
+}
+
+.wrap {
+  width: min(
+    var(--composition-width),
+    calc(100% - var(--page-gutter) - var(--page-gutter))
+  );
+  margin-inline: auto;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip:focus {
+  left: 16px;
+  top: 12px;
+  z-index: 10;
+  padding: 12px 18px;
+  background: var(--surface);
+}
+
+/* 04 / MASTHEAD — Complete logo fills the shared content width. */
+.header.wrap {
+  padding: 28px 0 0;
+}
+
+.header .brand {
+  display: block;
+  width: 100%;
+  margin-inline: auto;
+  text-decoration: none;
+}
+
+.header .brand picture,
+.header .brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 05 / TYPOGRAPHY
+   Anton provides identity for the main statement and section headings.
+   IBM Plex Sans handles reading text, service titles and interface text.
+*/
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: normal;
+}
+
+h1 {
+  margin: 0 0 24px;
+}
+
+h2 {
+  max-width: 30ch;
+  margin: 0 0 30px;
+  font-size: clamp(32px, 3.2vw, 40px);
+  line-height: 1.22;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-reading);
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.35;
+}
+
+h3 {
+  margin: 14px 0 12px;
+  font-size: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--cyan);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 1.3px;
+}
+
+/* 06 / OPENING — Restrained headline scale beneath the large logo. */
+.hero {
+  padding-block: 40px 52px;
+}
+
+.hero h1 {
+  max-width: 28ch;
+  font-size: clamp(38px, 4.5vw, 64px);
+  line-height: 1.15;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.hero em {
+  color: var(--orange);
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.lead {
+  max-width: 65ch;
+  margin-bottom: 28px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  min-height: 54px;
+  padding: 14px 22px;
+  background: var(--orange);
+  color: var(--background);
+  font-family: var(--font-reading);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #ffa46e;
+}
+
+.button span {
+  flex-shrink: 0;
+}
+
+.location {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 07 / SECTIONS AND APPROACH */
+.section {
+  padding-block: 52px;
+}
+
+#approach {
+  border-top: 1px solid var(--rule);
+}
+
+.three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  margin-top: 34px;
+}
+
+.number {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+article,
+.prose,
+.about > div {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+article p:last-child,
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* 08 / CAPABILITIES */
+.band {
+  background: var(--surface);
+  border-block: 1px solid var(--rule);
+}
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 56px;
+  margin-top: 32px;
+}
+
+.cap-grid article {
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+}
+
+/* 09 / ABOUT */
+.about {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+}
+
+.prose {
+  max-width: 68ch;
+}
+
+/* 10 / CONTACT */
+.contact {
+  background: var(--surface);
+  border-top: 1px solid var(--rule);
+}
+
+.contact .wrap > p:not(.eyebrow) {
+  max-width: 65ch;
+}
+
+.contact-pending {
+  border-left: none;
+  padding: 0;
+  margin-top: 24px;
+}
+
+.contact-pending p {
+  margin: 0;
+}
+
+.contact-pending a {
+  color: var(--orange);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+/* 11 / FOOTER */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-block: 28px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 12 / TABLETS — Stack reading columns before they become cramped. */
+@media (max-width: 900px) {
+  .three,
+  .about {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .three article {
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+  }
+
+  .about {
+    gap: 8px;
+  }
+
+  .about h2 {
+    margin-bottom: 16px;
+  }
+}
+
+/* 13 / PHONES — Preserve readable copy; scale the display typography. */
+@media (max-width: 640px) {
+  .header.wrap {
+    padding-top: 24px;
+  }
+
+  .hero {
+    padding-block: 30px 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 8.5vw, 48px);
+    line-height: 1.18;
+  }
+
+  .section {
+    padding-block: 40px;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 1.24;
+    margin-bottom: 26px;
+  }
+
+  h3 {
+    font-size: 21px;
+  }
+
+  .eyebrow {
+    letter-spacing: 1px;
+  }
+
+  .three {
+    margin-top: 26px;
+  }
+
+  .cap-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 26px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* 14 / REDUCED MOTION AND HIGH-CONTRAST PREFERENCES */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (forced-colors: active) {
+  .button {
+    border: 1px solid ButtonText;
+  }
+}
+
+/* Editorial hierarchy: original masthead, geometry and dark palette retained. */
+.hero .lead { margin-bottom: 18px; }
+.hero-context { max-width: 65ch; margin-bottom: 28px; }
+.working-principle { color: var(--text); font-weight: 500; }
+.contact-pending a { overflow-wrap: anywhere; }
+
+/* Light palette follows the supplied light logo. */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --background: #e8eff0;
+    --surface: #cbdfe1;
+    --text: #063f4a;
+    --muted: #405d65;
+    --cyan: #063f4a;
+    --orange: #d95f20;
+    --rule: #063f4a40;
+  }
+  .button { background: #063f4a; color: #ffffff; }
+  .button span { color: #ffa46e; }
+  .button:hover { background: #0b5661; }
+  .hero em, .number { color: #b64a16; }
+  .contact { background: #063f4a; color: #edf5f4; border-top-color: #063f4a; }
+  .contact .eyebrow { color: #85d4dc; }
+  .contact-pending a { color: #ffa46e; }
+  .contact a:focus-visible { outline-color: #ffa46e; }
+}
